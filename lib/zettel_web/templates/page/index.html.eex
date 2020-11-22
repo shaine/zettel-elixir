@@ -1,0 +1,7 @@
+<pre>
+<%= for {key, value} <- @document.metadata do %>
+  <%= key %>: <%= value %>
+<% end %>
+</pre>
+
+<%= raw @document.html %>

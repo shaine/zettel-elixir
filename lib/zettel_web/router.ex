@@ -16,7 +16,8 @@ defmodule ZettelWeb.Router do
   scope "/", ZettelWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/*path", PageController, :index
+    post "/*path", PageController, :save
   end
 
   # Other scopes may use custom stacks.

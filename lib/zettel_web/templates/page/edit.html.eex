@@ -1,0 +1,29 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js" integrity="sha512-GoORoNnxst42zE3rYPj4bNBm0Q6ZRXKNH2D9nEmNvVF/z24ywVnijAWVi/09iBiVDQVf3UlZHpzhAJIdd9BXqw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/keybinding-vim.min.js" integrity="sha512-oz1c/ej3p90Q3jaAkdnobWNw392iWTcMSf6HHD+ZyrBS5U1GRicJ/pT0+oIFuO+CPng5XGYi9jShmtlX/f/0UQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-markdown.min.js" integrity="sha512-8euv05RhbuOcZWj/kpF+KtKN7g1CPx7buTZjIBf/rZQz47cduH3DERWoqJFrIYE0TzaIlptz+Ir2BodrmLT8kQ==" crossorigin="anonymous"></script>
+
+<form method="post">
+  <div style="height: 90vh" id="editor"><%= @document.document %></div>
+
+  <input type="hidden" name="hash" value="<%= @document.file_metadata.hash %>>" />
+  <input type="hidden" value="<%= @token %>" name="_csrf_token" />
+  <input type="hidden" value="<%= @document.document %>" name="content" />
+
+  <button type="submit">Save</button>
+  <button type="button" class="button-outline" onclick="window.history.back()">Cancel</button>
+</form>
+
+<script>
+  const editor = ace.edit("editor");
+  editor.session.setMode("ace/mode/markdown");
+  editor.session.setUseWrapMode(true);
+  editor.setOptions({
+    showGutter: false,
+    useSoftTabs: true,
+    tabSize: 2
+  });
+  editor.setKeyboardHandler('ace/keyboard/vim');
+  editor.getSession().on("change", function() {
+    document.getElementsByName("content")[0].value = editor.getSession().getValue();
+  });
+</script>

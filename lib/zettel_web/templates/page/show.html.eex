@@ -1,0 +1,8 @@
+<%= unless is_nil(@document.content_metadata) do %>
+<pre><%= for {key, value} <- @document.content_metadata do %><%= key %>: <%= value %>
+<% end %></pre>
+<% end %>
+
+<a href="#" onclick="window.history.back(); return false">Back</a> | <a href="/<%= @document.file_metadata.file_name %>/edit">Edit</a>
+
+<%= raw @document.html %>

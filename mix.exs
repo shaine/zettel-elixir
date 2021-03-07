@@ -36,6 +36,7 @@ defmodule Zettel.MixProject do
       {:earmark, "~> 1.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
+      {:murmur, "~> 1.0"},
       {:phoenix, "~> 1.5.5"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_dashboard, "~> 0.2"},

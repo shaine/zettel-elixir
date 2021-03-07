@@ -2,9 +2,24 @@
 
 ## TODO
 
-- Create DocumentClient
-- Create document view
-- Create document caching layer
+- Document caching layer
+- Network graph
+- Reference markdown import service
+- Dockerize project
+- Categorize documents by content
+- Tag links
+- Tag searches
+- Global search
+- Weighted random button
+- Review facilitation?
+- File indexing
+- Diary calendar
+- TODO finder
+- Authentication
+- Add link popovers
+- Support new documents
+- "Right now" view
+- <https://github.com/enrico-kaack/markdown-clipper/blob/master/README.md>
 
 To start your Phoenix server:
 
